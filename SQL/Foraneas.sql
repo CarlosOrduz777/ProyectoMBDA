@@ -1,10 +1,9 @@
 --Llaves foraneas
 ALTER TABLE TiendasProductos ADD CONSTRAINT FK_TiendasProductos_Tiendas
-	FOREIGN KEY (nombreTienda) REFERENCES Tiendas(nombre);
-ALTER TABLE TiendasProductos ADD CONSTRAINT FK_TiendasProductos_Tiendas
-	FOREIGN KEY (direccion) REFERENCES Tiendas(direccion);
+	FOREIGN KEY (nombreTienda, direccionTienda) REFERENCES Tiendas(nombre,direccion);
+
 ALTER TABLE TiendasProductos ADD CONSTRAINT FK_TiendasProductos_Productos
-	FOREIGN KEY (id) REFERENCES Productos(id);
+	FOREIGN KEY (idProducto) REFERENCES Productos(id);
 	
 ALTER TABLE Productos ADD CONSTRAINT FK_Productos_Ordenes
 	FOREIGN KEY (idOrden) REFERENCES Ordenes(id);

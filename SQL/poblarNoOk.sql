@@ -12,4 +12,4 @@ INSERT INTO Ordenes(id,observaciones,horaInicio,horaFinalizacion,estado,costo,me
 --Null donde no deberia
 INSERT INTO Cupones(id,redimido,idOrden) VALUES (15, null, 1);
 --Se sale de longitud de tipo
-INSERT INTO Ordenes(id,observaciones,horaInicio,horaFinalizacion,estado,costo,metodoPago,idUsuario) VALUES (12345678912,null,'14:00','14:25','F',35000,'E',1);
+INSERT INTO Ordenes(id,observaciones,horaInicio,horaFinalizacion,estado,costo,metodoPago,idUsuario) VALUES (123456789123,null,'14:00','14:25','F',35000,'E',1);

@@ -1,6 +1,6 @@
 CREATE TABLE Tiendas(
 	nombre VARCHAR(25) NOT NULL,
-	direccion VARCHAR(15) NOT NULL,
+	direccion VARCHAR(25) NOT NULL,
 	horaApertura VARCHAR(5) NOT NULL,
 	horaCierre VARCHAR(5) NOT NULL,
 	zona VARCHAR(10) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE Tiendas(
 );
 CREATE TABLE TiendasProductos(
 	nombreTienda VARCHAR(25) NOT NULL,
-	direccionTienda VARCHAR(15) NOT NULL,
+	direccionTienda VARCHAR(25) NOT NULL,
 	idProducto NUMBER(11) NOT NULL,
 	precio INT NOT NULL
 
@@ -19,7 +19,7 @@ CREATE TABLE Productos(
 	id NUMBER(11) NOT NULL,
 	descuento VARCHAR(1) NOT NULL,
 	marca VARCHAR(30) NOT NULL,
-	nombre VARCHAR(15) NOT NULL,
+	nombre VARCHAR(25) NOT NULL,
 	descripcion VARCHAR(100) NOT NULL,
 	peso VARCHAR(9) NOT NULL,
 	unidades NUMBER(3) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE Ordenes(
 	id NUMBER(11) NOT NULL,
 	observaciones VARCHAR(200),
 	horaInicio VARCHAR(5) NOT NULL,
-	horaFinalizacion VARCHAR(5) NOT NULL,
+	horaFinalizacion VARCHAR(5),
 	estado VARCHAR(1) NOT NULL,
 	costo VARCHAR(11) NOT NULL,
 	metodoPago VARCHAR(1) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE Domiciliarios(
 	id NUMBER(11) NOT NULL,
 	nombre VARCHAR(20) NOT NULL,
 	correo VARCHAR(30),
-	ubicacion VARCHAR(10) NOT NULL
+	ubicacion VARCHAR(30) NOT NULL
 
 );
 CREATE TABLE Direcciones(

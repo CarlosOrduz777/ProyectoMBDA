@@ -1,10 +1,10 @@
 --PoblarOk
 
-INSERT INTO Tiendas(nombres, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('KFC', 'Cll 23 #22-10', '10:00', '22:00', 'chicó', 'T');
-INSERT INTO Tiendas(nombres, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Presto', 'Cra 107 #22A-10', '10:00', '20:00', 'usaquen', 'F');
-INSERT INTO Tiendas(nombres, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Donde Pablo', 'Tranversal 23 #93-70', '8:00', '22:00', 'norte', 'F');
-INSERT INTO Tiendas(nombres, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Mi tiendita', 'Calle 59 #45-15', '11:00', '22:00', 'chicó', 'T');
-INSERT INTO Tiendas(nombres, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Come de to', 'Calle 44D #45-30', '13:00', '18:00', 'Rafael', 'T');
+INSERT INTO Tiendas(nombre, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('KFC', 'Cll 23 #22-10', '10:00', '22:00', 'chicó', 'T');
+INSERT INTO Tiendas(nombre, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Presto', 'Cra 107 #22A-10', '10:00', '20:00', 'usaquen', 'F');
+INSERT INTO Tiendas(nombre, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Donde Pablo', 'Tran 23 #93-70', '8:00', '22:00', 'norte', 'F');
+INSERT INTO Tiendas(nombre, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Mi tiendita', 'Calle 59 #45-15', '11:00', '22:00', 'chicó', 'T');
+INSERT INTO Tiendas(nombre, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Come de to', 'Calle 44D #45-30', '13:00', '18:00', 'Rafael', 'T');
 
 INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (1,'T','Alpina','Leche','Leche deslactosada', '350ml', 1, 14596);
 INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (2,'F','Presto','Hamburguesa Doble','Hamburguesa doble carne', '100g', 1, 14596);
@@ -13,10 +13,10 @@ INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrde
 INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (5,'T','Presto','Hamburguesa simple combo','Hamburguesa simple carne y gaseosa', '150 g', 1, 8534);
 
 INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Presto', 'Cra 107 #22A-10',2,15000);
-INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Donde Pablo', 'Tranversal 23 #93-70',1,2500);
+INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Donde Pablo', 'Tran 23 #93-70',1,2500);
 INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Mi tiendita', 'Calle 59 #45-15',1,3000);
 INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Presto', 'Cra 107 #22A-10',5,25000);
-INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Donde Pablo', 'Tranversal 23 #93-70',4,1500);
+INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Donde Pablo', 'Tran 23 #93-70',4,1500);
 
 INSERT INTO Ordenes(id,observaciones,horaInicio,horaFinalizacion,estado,costo,metodoPago,idUsuario) VALUES (1,null,'14:00','14:25','F',35000,'E',1);
 INSERT INTO Ordenes(id,observaciones,horaInicio,horaFinalizacion,estado,costo,metodoPago,idUsuario) VALUES (2,null,'18:00','19:25','F',34560,'P',2);
@@ -51,7 +51,7 @@ INSERT INTO Telefonos(idUsuario,telefono) VALUES (1,'3017488370');
 INSERT INTO Direcciones(idCliente,direccion) VALUES (1,'Cra 63 #22-10');
 INSERT INTO Direcciones(idCliente,direccion) VALUES (2,'Cra 68 #26A-10');
 INSERT INTO Direcciones(idCliente,direccion) VALUES (3,'Cll 63 #22-10');
-INSERT INTO Direcciones(idCliente,direccion) VALUES (4,'Tranversal 5 #92-40');
+INSERT INTO Direcciones(idCliente,direccion) VALUES (4,'Tran 5 #92-40');
 INSERT INTO Direcciones(idCliente,direccion) VALUES (3,'Cra 108 #23-19');
 
 INSERT INTO Domiciliarios(id,nombre,correo,ubicaicon) VALUES (6,'Juanita', null, '1806534-147896');
