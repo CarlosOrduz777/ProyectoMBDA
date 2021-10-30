@@ -9,3 +9,4 @@ DELETE FROM Telefonos;
 DELETE FROM Clientes;
 DELETE FROM Direcciones;
 DELETE FROM Domiciliarios;
+--Borrar primero las tablas que referencian a otras y luego las tablas base

@@ -1,4 +1,5 @@
 --Consultar Tiendas
+--Ponerlas mas complejas
 SELECT nombre FROM Tiendas;
 
 --Consultar productos con descuento

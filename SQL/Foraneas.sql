@@ -1,4 +1,5 @@
 --Llaves foraneas
+--Ajustar Telefonos
 ALTER TABLE TiendasProductos ADD CONSTRAINT FK_TiendasProductos_Tiendas
 	FOREIGN KEY (nombreTienda, direccionTienda) REFERENCES Tiendas(nombre,direccion);
 

@@ -11,7 +11,7 @@ CREATE TABLE TiendasProductos(
 	nombreTienda VARCHAR(25) NOT NULL,
 	direccionTienda VARCHAR(25) NOT NULL,
 	idProducto NUMBER(11) NOT NULL,
-	precio INT NOT NULL
+	precio NUMBER(11,4) NOT NULL
 
 
 );
@@ -45,7 +45,8 @@ CREATE TABLE Calificaciones(
 CREATE TABLE Cupones(
 	id NUMBER(11) NOT NULL,
 	redimido VARCHAR(1) NOT NULL,
-	idOrden NUMBER(11) NOT NULL
+	idOrden NUMBER(11) NOT NULL,
+	descuento NUMBER(2) NOT NULL
 );
 CREATE TABLE Clientes(
 	id NUMBER(11) NOT NULL,

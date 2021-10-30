@@ -13,5 +13,7 @@ ALTER TABLE Ordenes ADD CONSTRAINT CK_MetodoPago
 	CHECK (metodoPago IN ('E','P','C','D'));
 	
 ALTER TABLE Ordenes ADD CONSTRAINT CK_Estado
-	CHECK (Estado IN ('E','L','F'));
-	
+	CHECK (estado IN ('E','L','F'));
+
+ALTER TABLE Cupones ADD CONSTRAINT CK_Descuento
+	CHECK (descuento <= 80);

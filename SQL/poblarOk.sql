@@ -30,11 +30,11 @@ INSERT INTO Calificaciones(observaciones,valoracion,idOrden) VALUES ('No traia p
 INSERT INTO Calificaciones(observaciones,valoracion,idOrden) VALUES (NULL,4,4);
 INSERT INTO Calificaciones(observaciones,valoracion,idOrden) VALUES ('No fue lo que pedí',1,5);
 
-INSERT INTO Cupones(id,redimido,idOrden) VALUES (1, 'F', 1);
-INSERT INTO Cupones(id,redimido,idOrden) VALUES (8, 'T', 2);
-INSERT INTO Cupones(id,redimido,idOrden) VALUES (125, 'T', 3);
-INSERT INTO Cupones(id,redimido,idOrden) VALUES (11457, 'F', 5);
-INSERT INTO Cupones(id,redimido,idOrden) VALUES (15, 'T', 1);
+INSERT INTO Cupones(id,redimido,idOrden,descuento) VALUES (1, 'F', 1,40);
+INSERT INTO Cupones(id,redimido,idOrden,descuento) VALUES (8, 'T', 2,20);
+INSERT INTO Cupones(id,redimido,idOrden,descuento) VALUES (125, 'T', 3,35);
+INSERT INTO Cupones(id,redimido,idOrden,descuento) VALUES (11457, 'F', 5,25);
+INSERT INTO Cupones(id,redimido,idOrden,descuento) VALUES (15, 'T', 1,15);
 
 INSERT INTO Clientes(id,nombre,correo) VALUES (1, 'Daniel', 'ejemplo@outlook.com');
 INSERT INTO Clientes(id,nombre,correo) VALUES (2, 'Carlos', NULL);
