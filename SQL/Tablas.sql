@@ -67,6 +67,8 @@ CREATE TABLE Direcciones(
 
 );
 CREATE TABLE Telefonos(
-	idUsuario NUMBER(11) NOT NULL,
+	codigo NUMBER(11) NOT NULL,
+	idCliente NUMBER(11),
+	idDomiciliario NUMBER(12),
 	telefono NUMBER(12) NOT NULL
 );

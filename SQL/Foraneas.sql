@@ -24,6 +24,6 @@ ALTER TABLE Direcciones ADD CONSTRAINT FK_Direcciones_Clientes
 	FOREIGN KEY (idCliente) REFERENCES Clientes(id);
 	
 ALTER TABLE Telefonos ADD CONSTRAINT FK_Telefonos_Clientes
-	FOREIGN KEY (idUsuario) REFERENCES Clientes(id);
+	FOREIGN KEY (idCliente) REFERENCES Clientes(id);
 ALTER TABLE Telefonos ADD CONSTRAINT FK_Telefonos_Domiciliarios
-	FOREIGN KEY (idUsuario) REFERENCES Domiciliarios(id);
+	FOREIGN KEY (idDomiciliario) REFERENCES Domiciliarios(id);

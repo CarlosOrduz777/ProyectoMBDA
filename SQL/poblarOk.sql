@@ -6,11 +6,11 @@ INSERT INTO Tiendas(nombre, direccion, horaApertura,horaCierre,zona,disponible) 
 INSERT INTO Tiendas(nombre, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Mi tiendita', 'Calle 59 #45-15', '11:00', '22:00', 'chicó', 'T');
 INSERT INTO Tiendas(nombre, direccion, horaApertura,horaCierre,zona,disponible) VALUES ('Come de to', 'Calle 44D #45-30', '13:00', '18:00', 'Rafael', 'T');
 
-INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (1,'T','Alpina','Leche','Leche deslactosada', '350ml', 1, 14596);
-INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (2,'F','Presto','Hamburguesa Doble','Hamburguesa doble carne', '100g', 1, 14596);
-INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (3,'T','La Lechera','Leche condensada','Leche condensada', '350ml', 1, 1852);
-INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (4,'T','Alqueria','Leche','Leche deslactosada', '350ml', 2, 15617);
-INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (5,'T','Presto','Hamburguesa simple combo','Hamburguesa simple carne y gaseosa', '150 g', 1, 8534);
+INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (1,'T','Alpina','Leche','Leche deslactosada', '350ml', 1, 1);
+INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (2,'F','Presto','Hamburguesa Doble','Hamburguesa doble carne', '100g', 1, 2);
+INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (3,'T','La Lechera','Leche condensada','Leche condensada', '350ml', 1, 3);
+INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (4,'T','Alqueria','Leche','Leche deslactosada', '350ml', 2, 4);
+INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades,idOrden) VALUES (5,'T','Presto','Hamburguesa simple combo','Hamburguesa simple carne y gaseosa', '150 g', 1, 5);
 
 INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Presto', 'Cra 107 #22A-10',2,15000);
 INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES ('Donde Pablo', 'Tran 23 #93-70',1,2500);
@@ -54,8 +54,8 @@ INSERT INTO Direcciones(idCliente,direccion) VALUES (3,'Cll 63 #22-10');
 INSERT INTO Direcciones(idCliente,direccion) VALUES (4,'Tran 5 #92-40');
 INSERT INTO Direcciones(idCliente,direccion) VALUES (3,'Cra 108 #23-19');
 
-INSERT INTO Domiciliarios(id,nombre,correo,ubicaicon) VALUES (6,'Juanita', null, '1806534-147896');
-INSERT INTO Domiciliarios(id,nombre,correo,ubicaicon) VALUES (7,'Juanito', 'juanito@gmail.com', '1834884-147861');
-INSERT INTO Domiciliarios(id,nombre,correo,ubicaicon) VALUES (8,'Esteban', null, '1801579-142796');
-INSERT INTO Domiciliarios(id,nombre,correo,ubicaicon) VALUES (9,'Laura', null, '1782534-142476');
-INSERT INTO Domiciliarios(id,nombre,correo,ubicaicon) VALUES (10,'Alfonso', 'Correo_ing@hotmail.com', '65478234-14172173');
+INSERT INTO Domiciliarios(id,nombre,correo,ubicacion) VALUES (6,'Juanita', null, '1806534-147896');
+INSERT INTO Domiciliarios(id,nombre,correo,ubicacion) VALUES (7,'Juanito', 'juanito@gmail.com', '1834884-147861');
+INSERT INTO Domiciliarios(id,nombre,correo,ubicacion) VALUES (8,'Esteban', null, '1801579-142796');
+INSERT INTO Domiciliarios(id,nombre,correo,ubicacion) VALUES (9,'Laura', null, '1782534-142476');
+INSERT INTO Domiciliarios(id,nombre,correo,ubicacion) VALUES (10,'Alfonso', 'Correo_ing@hotmail.com', '65478234-14172173');

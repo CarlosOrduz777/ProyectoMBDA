@@ -17,7 +17,7 @@ ALTER TABLE Cupones ADD CONSTRAINT PK_cupones
     PRIMARY KEY (id);
 	
 ALTER TABLE Telefonos ADD CONSTRAINT PK_telefonos
-    PRIMARY KEY (idUsuario,telefono);
+    PRIMARY KEY (codigo);
 	
 ALTER TABLE Domiciliarios ADD CONSTRAINT PK_Domiciliarios
     PRIMARY KEY (id);

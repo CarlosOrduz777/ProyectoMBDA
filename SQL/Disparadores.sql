@@ -33,3 +33,15 @@
 
 	END;
 	
+	--Generar Costo automaticamente
+	CREATE OR REPLACE TRIGGER TG_Ordenes_BI
+	BEFORE INSERT ON Ordenes
+	FOR EACH ROW
+	DECLARE
+		costo NUMBER(8);
+	BEGIN
+		SELECT Productos.idOrden,id FROM Ordenes
+		JOIN ON
+			id := Productos.idOrden
+		GROUP BY id;
+	END;
