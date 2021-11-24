@@ -1,6 +1,7 @@
 --Disparadores
 	--Asignar Id Domiciliarios automaticamente
 	CREATE SEQUENCE idUs_seq START WITH 1;
+	
 	CREATE OR REPLACE TRIGGER TG_DomiciliariosId
 	BEFORE INSERT ON Domiciliarios
 	FOR EACH ROW
