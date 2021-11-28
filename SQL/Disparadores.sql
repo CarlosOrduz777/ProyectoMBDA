@@ -41,8 +41,7 @@
 	DECLARE
 		costo NUMBER(8);
 	BEGIN
-		SELECT Productos.idOrden,id FROM Ordenes
-		JOIN ON
-			id := Productos.idOrden
-		GROUP BY id;
+		costo = SELECT TiendasProductos.precio*Productos.unidades as costo FROM Ordenes
+		JOIN Productos ON Ordenes.id = Productos.idOrden
+        JOIN TiendasProductos ON Productos.id = tiendasproductos.idproducto;
 	END;
