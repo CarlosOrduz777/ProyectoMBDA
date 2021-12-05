@@ -15,6 +15,12 @@ CREATE TABLE TiendasProductos(
 
 
 );
+CREATE TABLE OrdenesProductos(
+	idOrden NUMBER(11) NOT NULL,
+	idProducto NUMBER(11) NOT NULL,
+	cantidad NUMBER(2) NOT NULL
+
+);
 CREATE TABLE Productos(
 	id NUMBER(11) NOT NULL,
 	descuento VARCHAR(1) NOT NULL,
@@ -26,7 +32,7 @@ CREATE TABLE Productos(
 	idOrden NUMBER(11) NOT NULL
 );
 CREATE TABLE Ordenes(
-	id NUMBER(11) NOT NULL,
+	id NUMBER(11) NOT NULL AUTO_INCREMENT,
 	observaciones VARCHAR(200),
 	horaInicio VARCHAR(5) NOT NULL,
 	horaFinalizacion VARCHAR(5),

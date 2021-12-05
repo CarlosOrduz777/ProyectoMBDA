@@ -6,8 +6,6 @@ ALTER TABLE TiendasProductos ADD CONSTRAINT FK_TiendasProductos_Tiendas
 ALTER TABLE TiendasProductos ADD CONSTRAINT FK_TiendasProductos_Productos
 	FOREIGN KEY (idProducto) REFERENCES Productos(id);
 	
-ALTER TABLE Productos ADD CONSTRAINT FK_Productos_Ordenes
-	FOREIGN KEY (idOrden) REFERENCES Ordenes(id);
 	
 ALTER TABLE Ordenes ADD CONSTRAINT FK_Ordenes_Domiciliarios
 	FOREIGN KEY (idUsuario) REFERENCES Domiciliarios(id);
@@ -27,3 +25,9 @@ ALTER TABLE Telefonos ADD CONSTRAINT FK_Telefonos_Clientes
 	FOREIGN KEY (idCliente) REFERENCES Clientes(id);
 ALTER TABLE Telefonos ADD CONSTRAINT FK_Telefonos_Domiciliarios
 	FOREIGN KEY (idDomiciliario) REFERENCES Domiciliarios(id);
+
+
+ALTER TABLE OrdenesProductos ADD CONSTRAINT FK_OrdenesPrductos_Productos
+	FOREIGN KEY (idProducto) REFERENCES Productos(id);
+ALTER TABLE OrdenesProductos ADD CONSTRAINT FK_OrdenesPrductos_Ordenes
+	FOREIGN KEY (idOrden) REFERENCES Ordenes(id);

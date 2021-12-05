@@ -45,3 +45,5 @@
 		JOIN Productos ON Ordenes.id = Productos.idOrden
         JOIN TiendasProductos ON Productos.id = tiendasproductos.idproducto;
 	END;
+	
+--Sumarlas y ponerlo en costo

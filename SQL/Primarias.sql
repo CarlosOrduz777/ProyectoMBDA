@@ -26,3 +26,6 @@ ALTER TABLE Clientes ADD CONSTRAINT PK_clientes
     PRIMARY KEY (id);
 ALTER TABLE Direcciones ADD CONSTRAINT PK_direcciones
     PRIMARY KEY (idCliente, direccion);
+	
+ALTER TABLE OrdenesProductos ADD CONSTRAINT PK_OrdenesProductos
+    PRIMARY KEY (idOrden, idProducto);
