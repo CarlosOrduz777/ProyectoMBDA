@@ -6,7 +6,7 @@ CREATE OR REPLACE PACKAGE PK_Usuario IS
 	PROCEDURE elUsuario(idUs NUMBER(11));
 	PROCEDURE coCliente(idUs NUMBER(11));
 	PROCEDURE coDomiciliario(idUs NUMBER(11));
-END;
+END PK_Usuario;
 /
 
 --CRUD TIENDA
@@ -16,7 +16,7 @@ CREATE OR REPLACE PACKAGE PK_Tiendas IS
 	PROCEDURE moTienda(nombreN VARCHAR(25),direccionN VARCHAR(25),horaAperturaN VARCHAR(5),horaCierreN VARCHAR(5), zonaN VARCHAR(10), disponibleN VARCHAR(1));
 	PROCEDURE elTienda(nombreE VARCHAR(25),direccionE VARCHAR(25));
 	PROCEDURE coTienda(nombreC VARCHAR(25),direccionC VARCHAR(25));
-END;
+END PK_Tiendas;
 /
 
 --CRUD PRODUCTO
@@ -26,5 +26,5 @@ CREATE OR REPLACE PACKAGE PK_Producto IS
 	PROCEDURE moProducto(idM NUMBER(11));
 	PROCEDURE elProducto(idE NUMBER(11));
 	PROCEDURE coProducto(idC NUMBER(11));
-END;
+END PK_Producto;
 /
