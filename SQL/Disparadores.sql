@@ -88,5 +88,3 @@ BEGIN
 END;
 /
 --Crear ID de la orden
-
---Sumarlas y ponerlo en costo
