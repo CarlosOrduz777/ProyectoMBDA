@@ -1,42 +1,36 @@
 --Actores E
 
 CREATE OR REPLACE PACKAGE PK_Cliente IS
-	PROCEDURE adOrden(xid NUMBER,xobservaciones varchar,xhoraInicio varchar,xhoraFinalizacion varchar,xestado varchar,xidCliente NUMBER, xidDomiciliario NUMBER);
-	PROCEDURE moOrden(xid NUMBER,xobservaciones varchar,xhoraInicio varchar,xhoraFinalizacion varchar,xestado varchar,xmetodoPago varchar,xidCliente NUMBER, xidDomiciliario NUMBER);
-	PROCEDURE elOrden(xid number);
+	PROCEDURE adOrden(observacionesA VARCHAR,horaInicioA VARCHAR, horaFinalizacionA VARCHAR, estadoA VARCHAR, metodoPagoA VARCHAR, idClienteA NUMBER,idDomiciliarioA NUMBERR);
+	PROCEDURE moOrden(observacionesA VARCHAR,metodoPagoA VARCHAR);
+	PROCEDURE elOrden(idE NUMBER);
 END PK_Cliente;
 /
 CREATE OR REPLACE PACKAGE PK_Domiliciario IS
-	PROCEDURE moOrden(xid number,xestado varchar);
-	PROCEDURE consultarOrden(xid number);
+	PROCEDURE modEstadoOrden(idM NUMBER,estadoA VARCHAR);
+	PROCEDURE coOrden(idC NUMBER);
 END PK_Domiliciario;
 /
 CREATE OR REPLACE PACKAGE PK_Gerente IS
-	PROCEDURE adTienda(xnombre varchar, xdireccion varchar, xhoraApertura varchar,xhoraCierre varchar,xzona varchar,xdisponible varchar);
-	PROCEDURE moTienda(xnombre varchar, xdireccion varchar, xhoraApertura varchar,xhoraCierre varchar,xzona varchar,xdisponible varchar);
-	PROCEDURE elTienda(xnombre varchar,xdireccion varchar);
-	PROCEDURE coTienda(xnombre varchar,xdireccion varchar);
-	PROCEDURE adUsuario();
-	PROCEDURE elUsuario();
-	PROCEDURE coUsuario();
+	PROCEDURE adTienda(nombreA VARCHAR,direccionA VARCHAR,horaAperturaA VARCHAR,horaCierreA VARCHAR, zonaA VARCHAR, disponibleA VARCHAR);
+	PROCEDURE moTienda(nombreN VARCHAR,direccionN VARCHAR,horaAperturaN VARCHAR,horaCierreN VARCHAR, zonaN VARCHAR, disponibleN VARCHAR);
+	PROCEDURE elTienda(nombreE VARCHAR,direccionE VARCHAR);
+	PROCEDURE coTienda(nombreC VARCHAR,direccionC VARCHAR);
+	PROCEDURE adUsuario(nombreA VARCHAR,correoA VARCHAR, isCliente BOOLEAN);
+	PROCEDURE elUsuario(idUs NUMBER);
+	PROCEDURE coCliente(idUs NUMBER);
+    PROCEDURE coDomiciliario(idUs NUMBER);
 END PK_Gerente;
 /
 
 CREATE OR REPLACE PACKAGE PK_Tienda IS
-	PROCEDURE adProducto();
-	PROCEDURE moProducto();
-	PROCEDURE elProducto();
-	PROCEDURE coProducto();
+	PROCEDURE adProducto(nombreTiendaA VARCHAR,direccionTiendaA VARCHAR,descuentoA VARCHAR,marcaA VARCHAR,nombreA VARCHAR,descripcionA VARCHAR,pesoA VARCHAR,unidadesA NUMBER,precioA NUMBER);
+	PROCEDURE moProducto(idM NUMBER,descuentoM VARCHAR,marcaM VARCHAR,nombreM VARCHAR,descripcionM VARCHAR,pesoM VARCHAR,unidadesM NUMBER);
+	PROCEDURE elProducto(idE NUMBER);
+	PROCEDURE coProducto(idC NUMBER);
 END PK_Tienda;
 /
 
 
 
 
-CREATE ROLE PK_Cliente;
-
-CREATE ROLE PK_Domiliciario;
-
-CREATE ROLE PK_Gerente;
-
-CREATE ROLE PK_Tienda;
