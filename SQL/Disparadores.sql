@@ -60,9 +60,9 @@ BEGIN
 	INTO :NEW.id 
 	FROM dual;
 	
-	costo := SELECT TiendasProductos.precio*Productos.unidades as costo FROM Ordenes
-	JOIN Productos ON Ordenes.id = Productos.idOrden
-	JOIN TiendasProductos ON Productos.id = tiendasproductos.idproducto;
+	--costo := SELECT TiendasProductos.precio*Productos.unidades as costo FROM Ordenes
+	--JOIN Productos ON Ordenes.id = Productos.idOrden
+	--JOIN TiendasProductos ON Productos.id = tiendasproductos.idproducto;
 END;
 /
 --Generar ID producto automaticamente
