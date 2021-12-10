@@ -159,9 +159,9 @@ END;
 
 --CRUD ORDENES
 CREATE OR REPLACE PACKAGE BODY PK_Orden IS
-	PROCEDURE adOrden(observacionesA VARCHAR,horaInicioA VARCHAR, horaFinalizacionA VARCHAR, estadoA VARCHAR, costoA VARCHAR, metodoPagoA VARCHAR, idUsuarioA NUMBER) IS
+	PROCEDURE adOrden(observacionesA VARCHAR,horaInicioA VARCHAR, horaFinalizacionA VARCHAR, estadoA VARCHAR, metodoPagoA VARCHAR, idClienteA NUMBER,idDomiciliarioA NUMBER) IS
 	BEGIN
-		INSERT INTO Ordenes(id,observaciones,horaInicio,horaFinalizacion,estado,costo,metodoPago,idUsuario) VALUES (0,observacionesA,horaInicioA,horaFinalizacionA,estadoA,costoA,metodoPagoA,idUsuarioA);
+		INSERT INTO Ordenes(id,observaciones,horaInicio,horaFinalizacion,estado,metodoPago,idCliente,idDomiciliario) VALUES (0,observacionesA,horaInicioA,horaFinalizacionA,estadoA,metodoPagoA,idClienteA,idDomiciliarioA);
 	END;
 	PROCEDURE moOrden(idM NUMBER, observacionesA VARCHAR,metodoPagoA VARCHAR) IS
 	BEGIN
