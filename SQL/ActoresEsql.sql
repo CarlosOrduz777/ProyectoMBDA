@@ -1,8 +1,8 @@
 --Actores E
 
 CREATE OR REPLACE PACKAGE PK_Cliente IS
-	PROCEDURE adOrden(xid NUMBER,xobservaciones varchar,xhoraInicio varchar,xhoraFinalizacion varchar,xestado varchar,xidDomiciliario number, xidCliente number);
-	PROCEDURE moOrden(xid NUMBER,xobservaciones varchar,xhoraInicio varchar,xhoraFinalizacion varchar,xestado varchar,xidDomiciliario number, xidCliente number);
+	PROCEDURE adOrden(xid NUMBER,xobservaciones varchar,xhoraInicio varchar,xhoraFinalizacion varchar,xestado varchar,xidCliente NUMBER, xidDomiciliario NUMBER);
+	PROCEDURE moOrden(xid NUMBER,xobservaciones varchar,xhoraInicio varchar,xhoraFinalizacion varchar,xestado varchar,xmetodoPago varchar,xidCliente NUMBER, xidDomiciliario NUMBER);
 	PROCEDURE elOrden(xid number);
 END PK_Cliente;
 /
