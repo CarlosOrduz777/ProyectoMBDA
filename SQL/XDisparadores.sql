@@ -11,3 +11,7 @@ DROP TRIGGER TG_Ordenes_BI;
 DROP TRIGGER TG_OrdenesUp_BU;
 
 DROP TRIGGER TG_Productos_BI;
+
+DROP SEQUENCE idUs_seq;
+DROP SEQUENCE idOrden_seq;
+DROP SEQUENCE prod_seq;

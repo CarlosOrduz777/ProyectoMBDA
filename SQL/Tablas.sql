@@ -36,9 +36,9 @@ CREATE TABLE Ordenes(
 	horaInicio VARCHAR(5) NOT NULL,
 	horaFinalizacion VARCHAR(5),
 	estado VARCHAR(1) NOT NULL,
-	costo VARCHAR(11) NOT NULL,
 	metodoPago VARCHAR(1) NOT NULL,
-	idUsuario NUMBER(11) NOT NULL
+	idcliente NUMBER(11) NOT NULL,
+	idDomiciliario NUMBER(11) NOT NULL
 
 );
 CREATE TABLE Calificaciones( 
