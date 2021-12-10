@@ -31,7 +31,7 @@ CREATE TABLE Productos(
 	unidades NUMBER(3) NOT NULL
 );
 CREATE TABLE Ordenes(
-	id NUMBER(11) NOT NULL AUTO_INCREMENT,
+	id NUMBER(11) NOT NULL,
 	observaciones VARCHAR(200),
 	horaInicio VARCHAR(5) NOT NULL,
 	horaFinalizacion VARCHAR(5),

@@ -1,2 +1,5 @@
 DROP VIEW VOrden CASCADE CONSTRAINT;
 DROP VIEW VListaProductos CASCADE CONSTRAINT;
+
+DROP INDEX precioProducto;
+DROP INDEX descuentoProducto;

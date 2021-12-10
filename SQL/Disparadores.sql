@@ -47,14 +47,20 @@ END IF;
 
 END;
 /
---Generar Costo automaticamente
+--Generar Costo automaticamente y agregar automaticamente ID de la orden
+CREATE SEQUENCE idOrden_seq START WITH 1;
+
 CREATE OR REPLACE TRIGGER TG_Ordenes_BI
 BEFORE INSERT ON Ordenes
 FOR EACH ROW
 DECLARE
 	costo NUMBER(8);
 BEGIN
-	costo = SELECT TiendasProductos.precio*Productos.unidades as costo FROM Ordenes
+	SELECT idOrden_seq.NEXTVAL
+	INTO :NEW.id 
+	FROM dual;
+	
+	costo := SELECT TiendasProductos.precio*Productos.unidades as costo FROM Ordenes
 	JOIN Productos ON Ordenes.id = Productos.idOrden
 	JOIN TiendasProductos ON Productos.id = tiendasproductos.idproducto;
 END;
@@ -80,4 +86,7 @@ BEGIN
 		RAISE_APPLICATION_ERROR(-20003,'No se puede actualizar');
 	END IF;
 END;
+/
+--Crear ID de la orden
+
 --Sumarlas y ponerlo en costo

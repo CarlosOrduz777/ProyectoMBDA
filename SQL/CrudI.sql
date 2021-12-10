@@ -1,15 +1,16 @@
 --CRUD USUARIO
+
 CREATE OR REPLACE PACKAGE BODY PK_Usuario IS
-	PROCEDURE adUsuario(nombre VARCHAR(20),correo VARCHAR(30), isCliente BOOLEAN) IS
+	PROCEDURE adUsuario(nombreA VARCHAR,correoA VARCHAR, isCliente BOOLEAN) IS
 	BEGIN
 		IF isCliente THEN
-			INSERT INTO Clientes(id,nombre,correo) VALUES Clientes(0,nombre,correo);
+			INSERT INTO Clientes(id,nombre,correo) VALUES (0,nombreA,correoA);
 		ELSE 
-			INSERT INTO Domiciliarios(id,nombre,correo,ubicacion) VALUES Domiciliarios(0,nombre,correo,'ubicacion')
+			INSERT INTO Domiciliarios(id,nombre,correo,ubicacion) VALUES (0,nombreA,correoA,'ubicacion');
 		END IF;
 	END;
 	
-	PROCEDURE moUsuario(idUs NUMBER(11), newCorreo VARCHAR(30)) IS
+	PROCEDURE moUsuario(idUs NUMBER, newCorreo VARCHAR) IS
 	BEGIN
 		UPDATE Clientes SET correo = newCorreo
 		WHERE id = idUs;
@@ -18,7 +19,7 @@ CREATE OR REPLACE PACKAGE BODY PK_Usuario IS
 		WHERE id = idUs;
 	END;
 	
-	PROCEDURE elUsuario(idUs NUMBER(11)) IS
+	PROCEDURE elUsuario(idUs NUMBER) IS
 	BEGIN
 		DELETE FROM Clientes
 		WHERE id = idUs;
@@ -27,28 +28,39 @@ CREATE OR REPLACE PACKAGE BODY PK_Usuario IS
 		WHERE id = idUs;
 	END;
 	
-	PROCEDURE coCliente(idUs NUMBER(11)) IS
+	PROCEDURE coCliente(idUs NUMBER) IS
+    
 	BEGIN
-		SELECT * FROM Clientes
-		WHERE id = idUs;
+        DECLARE mostrar VARCHAR(30);
+        BEGIN
+            SELECT nombre INTO mostrar FROM Clientes
+            WHERE id = idUs;
+            DBMS_OUTPUT.put_line(mostrar);
+        END;
 	END;
 	
-	PROCEDURE coDomiciliario(idUs NUMBER(11)) IS
+	PROCEDURE coDomiciliario(idUs NUMBER) IS
 	BEGIN
-		SELECT * FROM Domiciliarios
-		WHERE id = idUs;
+		DECLARE mostrar VARCHAR(30);
+        BEGIN
+            SELECT nombre INTO mostrar FROM Clientes
+            WHERE id = idUs;
+            DBMS_OUTPUT.put_line(mostrar);
+        END;
 	END;
 END;
+/
+
 
 --CRUD TIENDA
 
 CREATE OR REPLACE PACKAGE BODY PK_Tiendas IS
-	PROCEDURE adTienda(nombreA VARCHAR(25),direccionA VARCHAR(25),horaAperturaA VARCHAR(5),horaCierreA VARCHAR(5), zonaA VARCHAR(10), disponibleA VARCHAR(1)) IS
+	PROCEDURE adTienda(nombreA VARCHAR,direccionA VARCHAR,horaAperturaA VARCHAR,horaCierreA VARCHAR, zonaA VARCHAR, disponibleA VARCHAR) IS
 	BEGIN
-		INTO Tiendas(nombre,direccion,horaApertura,horaCierre,zona,disponible) VALUES Tiendas(nombreA,direccionA,horaAperturaA,horaCierreA,zonaA,disponibleA)
+		INSERT INTO Tiendas(nombre,direccion,horaApertura,horaCierre,zona,disponible) VALUES (nombreA,direccionA,horaAperturaA,horaCierreA,zonaA,disponibleA);
 	END;
 	
-	PROCEDURE moTienda(nombreN VARCHAR(25),direccionN VARCHAR(25),horaAperturaN VARCHAR(5),horaCierreN VARCHAR(5), zonaN VARCHAR(10), disponibleN VARCHAR(1)) IS
+	PROCEDURE moTienda(nombreN VARCHAR,direccionN VARCHAR,horaAperturaN VARCHAR,horaCierreN VARCHAR, zonaN VARCHAR, disponibleN VARCHAR) IS
 	BEGIN
 		UPDATE Tiendas SET horaApertura = horaAperturaN
 		WHERE nombre = nombreN AND direccion = direccionN;
@@ -63,43 +75,121 @@ CREATE OR REPLACE PACKAGE BODY PK_Tiendas IS
 		WHERE nombre = nombreN AND direccion = direccionN;
 	END;
 	
-	PROCEDURE elTienda(nombreE VARCHAR(25),direccionE VARCHAR(25)) IS
+	PROCEDURE elTienda(nombreE VARCHAR,direccionE VARCHAR) IS
 	BEGIN
 		DELETE FROM Tiendas
 		WHERE nombre = nombreE AND direccion = direccionE;
 	END;
 	
-	PROCEDURE coTienda(nombreC VARCHAR(25),direccionC VARCHAR(25)) IS
+	PROCEDURE coTienda(nombreC VARCHAR,direccionC VARCHAR) IS
 	BEGIN
-		SELECT * FROM Tiendas
-		WHERE nombre = nombreC AND direccion = direccionC;
+		DECLARE mostrar VARCHAR(30);
+        BEGIN
+            SELECT nombre INTO mostrar FROM Tiendas
+			WHERE nombre = nombreC AND direccion = direccionC;
+            DBMS_OUTPUT.put_line(mostrar);
+        END;
 	END;
 END;
 /
 --CRUD PRODUCTO
 CREATE OR REPLACE PACKAGE BODY PK_Producto IS
-	PROCEDURE adProducto(nombreTiendaA VARCHAR(25),direccionTiendaA VARCHAR(25),descuentoA VARCHAR(1),marcaA VARCHAR(30),nombreA VARCHAR(25),descripcionA VARCHAR(100),pesoA VARCHAR(9),unidadesA NUMBER(3),precioA NUMBER(11,4)) IS
+	PROCEDURE adProducto(nombreTiendaA VARCHAR,direccionTiendaA VARCHAR,descuentoA VARCHAR,marcaA VARCHAR,nombreA VARCHAR,descripcionA VARCHAR,pesoA VARCHAR,unidadesA NUMBER,precioA NUMBER) IS
 	BEGIN
-		INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades) VALUES Productos(0,descuentoA,marcaA,nombreA,descripcionA,pesoA,unidadesA);
-		INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES TiendasProductos(nombreTiendaA,direccionTiendaA,(SELECT MAX(id) FROM  Productos),precioA)
+        DECLARE 
+            counter INTEGER;
+            idProd INTEGER;
+        BEGIN
+            SELECT count(nombre) into counter FROM Tiendas WHERE nombre = nombreTiendaA;
+            SELECT MAX(id) INTO idProd FROM  Productos;
+            IF (counter > 0) THEN
+                INSERT INTO Productos(id,descuento,marca,nombre,descripcion,peso,unidades) values (0,descuentoA,marcaA,nombreA,descripcionA,pesoA,unidadesA);
+                INSERT INTO TiendasProductos(nombreTienda,direccionTienda,idProducto,precio) VALUES (nombreTiendaA,direccionTiendaA,idProd,precioA);
+            ELSE
+                raise_application_error(-20050,'No existe tienda asociada');
+            END IF;
+        END;
+		
 	END;
 	
-	PROCEDURE moProducto(idM NUMBER(11))IS
+	PROCEDURE moProducto(idM NUMBER,descuentoM VARCHAR,marcaM VARCHAR,nombreM VARCHAR,descripcionM VARCHAR,pesoM VARCHAR,unidadesM NUMBER)IS
 	BEGIN
+		UPDATE Productos SET descuento = descuentoM
+		WHERE id =idM;
+		
+		UPDATE Productos SET marca = marcaM
+		WHERE id =idM;
+		
+		UPDATE Productos SET nombre = nombreM
+		WHERE id =idM;
+		
+		UPDATE Productos SET descripcion = descripcionM
+		WHERE id =idM;
+		
+		UPDATE Productos SET peso = pesoM
+		WHERE id =idM;
+		
+		UPDATE Productos SET unidades = unidadesM
+		WHERE id =idM;
 	END;
 	
-	PROCEDURE elProducto(idE NUMBER(11))IS
+	PROCEDURE elProducto(idE NUMBER)IS
 	BEGIN
 		DELETE FROM Productos
-		WHEN id = idE;
+		WHERE id = idE;
 	END;
 	
-	PROCEDURE coProducto(idC NUMBER(11))IS
+	PROCEDURE coProducto(idC NUMBER)IS
 	BEGIN
-		SELECT * FROM Productos
-		WHERE id = idC;
+		DECLARE 
+        mostrar VARCHAR(30);
+        mostrar1 NUMBER;
+        BEGIN
+            SELECT nombre INTO mostrar FROM Productos
+			WHERE id = idC;
 		
-		SELECT * FROM TiendasProductos
-		WHERE idProducto = idC;
+			SELECT tiendasproductos.idproducto  INTO mostrar1 FROM TiendasProductos
+			WHERE idProducto = idC;
+            DBMS_OUTPUT.put_line(mostrar);
+        END;
+		
 	END;
 END;
+/
+
+--CRUD ORDENES
+CREATE OR REPLACE PACKAGE BODY PK_Orden IS
+	PROCEDURE adOrden(observacionesA VARCHAR,horaInicioA VARCHAR, horaFinalizacionA VARCHAR, estadoA VARCHAR, costoA VARCHAR, metodoPagoA VARCHAR, idUsuarioA NUMBER) IS
+	BEGIN
+		INSERT INTO Ordenes(id,observaciones,horaInicio,horaFinalizacion,estado,costo,metodoPago,idUsuario) VALUES (0,observacionesA,horaInicioA,horaFinalizacionA,estadoA,costoA,metodoPagoA,idUsuarioA);
+	END;
+	PROCEDURE moOrden(idM NUMBER, observacionesA VARCHAR,metodoPagoA VARCHAR) IS
+	BEGIN
+		UPDATE Ordenes SET observaciones = observacionesA
+		WHERE id = idM;
+		
+		UPDATE Ordenes SET metodoPago = metodoPagoA
+		WHERE id = idM;
+	END;
+	PROCEDURE modEstadoOrden(idM NUMBER,estadoA VARCHAR) IS
+	BEGIN
+		UPDATE Ordenes SET estado = estado
+		WHERE id = idM;
+	END;
+	PROCEDURE elOrden(idE NUMBER)  IS
+	BEGIN
+		DELETE FROM Ordenes
+		WHERE id = idE;
+	END;
+	PROCEDURE coOrden(idC NUMBER) IS
+	BEGIN
+		DECLARE mostrar VARCHAR(30);
+        BEGIN
+            SELECT estado INTO mostrar FROM Ordenes
+			WHERE id = idC;
+            DBMS_OUTPUT.put_line(mostrar);
+        END;
+		
+	END;
+END;
+/
