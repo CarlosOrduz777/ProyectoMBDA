@@ -31,7 +31,7 @@ END;
 
 --CRUD ORDENES
 CREATE OR REPLACE PACKAGE PK_Orden IS
-	PROCEDURE adOrden(observacionesA VARCHAR,horaInicioA VARCHAR, horaFinalizacionA VARCHAR, estadoA VARCHAR, costoA VARCHAR, metodoPagoA VARCHAR, idUsuarioA NUMBER);
+	PROCEDURE adOrden(observacionesA VARCHAR,horaInicioA VARCHAR, horaFinalizacionA VARCHAR, estadoA VARCHAR, metodoPagoA VARCHAR, idClienteA NUMBER,idDomiciliarioA NUMBER);
 	PROCEDURE moOrden(idM NUMBER, observacionesA VARCHAR,metodoPagoA VARCHAR);
 	PROCEDURE modEstadoOrden(idM NUMBER,estadoA VARCHAR);
 	PROCEDURE elOrden(idE NUMBER);
